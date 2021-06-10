@@ -15,6 +15,7 @@ const pool = new Pool({
 // })
 
 const getUsers = (request, response) => {
+  try {
     pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
       if (error) {
         throw error
@@ -22,7 +23,10 @@ const getUsers = (request, response) => {
       console.log(results.rows);
       response.status(200).json(results.rows)
     })
+  } catch (error) {
+    response.status(400).json(error)
   }
+}
 
   module.exports = {
     getUsers,
