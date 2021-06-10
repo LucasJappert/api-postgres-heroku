@@ -29,6 +29,10 @@ const getUsers = (request, response) => {
   }
 }
 
-  module.exports = {
-    getUsers,
-  }
+module.exports.createTableUser = function (msg) { 
+  console.log(msg);
+};
+
+module.exports = {
+  getUsers,
+}
