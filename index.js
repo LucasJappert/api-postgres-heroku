@@ -1,17 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const db = require('./queries')
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+// app.use();
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API WORKING!' })
+    //response.json({ info: 'Node.js, Express, and Postgres API WORKING!' })
+    request.send("WORKING!");
 });
 
 app.get('/users', db.getUsers);
