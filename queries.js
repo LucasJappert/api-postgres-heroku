@@ -24,6 +24,7 @@ const getUsers = (request, response) => {
       response.status(200).json(results.rows)
     })
   } catch (error) {
+    console.warn(error);
     response.status(400).json(error)
   }
 }
